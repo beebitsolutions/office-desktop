@@ -15,11 +15,14 @@ mkdir chrome-install
 cd chrome-install
 MACHINE_TYPE=`uname -m`
 if [ ${MACHINE_TYPE} = 'x86_64' ]; then
-  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb chrome.deb
+  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+dpkg --install google-chrome-stable_current_amd64.deb
 else
-  wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb chrome.deb
+  wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
+dpkg --install google-chrome-stable_current_i386.deb
 fi
-dkpg --install chrome.deb
+cd ..
+rm -rf chrome-install
 clear
 echo "Configuración de usuario \nPor favor, escriba el nombre del usuario:"
 read nombre
